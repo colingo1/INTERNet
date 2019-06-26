@@ -1,0 +1,74 @@
+include mixins
+doctype html
+html(lang="en",style="height: 100%")
+  head
+    title Diplomacy
+    +head
+  body(style="height: 100%")
+    +navbar
+    ul(class = "nav nav-tabs")
+      li(class = "nav-item")
+        a(class = "nav-link active" data-toggle="tab" href = "#players") Players
+      li(class = "nav-item")
+        a(class = "nav-link" data-toggle="tab" href = "#map") Map
+      li(class = "nav-item")
+        a(class = "nav-link" data-toggle="tab" href = "#rules") Rules
+    div(class = "tab-content" style = "height:100%")
+      div(class = "tab-pane container-fluid active", id = "players",)
+        table(class = "table table-striped")
+          thead
+            tr
+              th Player
+              th Country
+              th Supply Centers
+              th Units
+              th Order Submitted?
+          tbody
+            tr
+              td Colin
+              td Italy
+              td 3
+              td 3
+              td No
+            tr
+              td Jonathan
+              td Germany
+              td 3
+              td 3
+              td No
+            tr
+              td Eric
+              td England
+              td 3
+              td 3
+              td No
+            tr
+              td Michael
+              td France
+              td 3
+              td 3
+              td No
+            tr
+              td Alex
+              td Turkey
+              td 3
+              td 3
+              td No
+            tr
+              td Jenna
+              td Austria-Hungary
+              td 3
+              td 3
+              td No
+            tr
+              td Leif
+              td Russia
+              td 4
+              td 4
+              td No
+      div(class = "tab-pane container-fluid", id = "map")
+        img(src = "/res/maps/map_6-26.jpg", style="width:100%")
+
+      div(class = "tab-pane container-fluid", id = "rules",style = "height:100%")
+        iframe(src="/res/diplomacy_rules.pdf", width = "100%", height = "100%")
+

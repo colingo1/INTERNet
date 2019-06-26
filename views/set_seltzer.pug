@@ -1,0 +1,14 @@
+html(lang='en')  
+  head
+    title Seltzer Selector
+  body
+    h1 Please Choose today's Seltzer.
+    form(action = "/set_seltzer", method="post")
+      select(name = "primary")
+        for flavor in seltzer_flavors
+          option(value=flavor[0]) #{flavor[1]}
+      select(name = "secondary")
+        for flavor in seltzer_flavors
+          option(value=flavor[0]) #{flavor[1]}
+      input(type = "submit",value = "Submit")
+
