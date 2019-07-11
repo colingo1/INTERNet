@@ -1,0 +1,30 @@
+doctype html  
+html(lang='en')  
+  head
+    title Seltzer Of The Day
+  body
+    h1 Today's Seltzer Flavors of the day are:
+    table
+      tr
+        td Primary
+        td Secondary
+      tr
+        td
+          img(src='/res/'+flavor_primary+'.jpg', height="200")
+        td
+          img(src='/res/'+flavor_secondary+'.jpg',height="200")
+      tr
+        td
+          form(action = "/seltzer/primary" method = "post")
+            input(type = "submit",value = "I've had one!")
+        td
+          form(action = "/seltzer/secondary" method = "post")
+            input(type = "submit",value = "I've had one!")
+        td
+          form(action = "/seltzer/other" method = "post")
+            input(type = "submit",value = "I had a different one because I'm a loser")
+    h2 Number of Seltzers consumed today: #{num_primary + num_secondary + num_other}
+    h3 Primary: #{num_primary}
+    h3 Secondary: #{num_secondary}
+    h3 Other: #{num_other}
+    

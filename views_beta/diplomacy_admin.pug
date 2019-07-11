@@ -1,0 +1,11 @@
+include mixins
+doctype html
+html(lang="en")
+  head
+    title Diplomacy Admin
+    +head
+  body
+    +navbar
+    form(action = "/diplomacy_admin", enctype = "multipart/form-data", method = "POST")
+      input(type = "file", name = "map_upload")
+      input(type = "submit", name = "submit")

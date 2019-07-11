@@ -1,0 +1,20 @@
+include mixins
+html(lang='en')  
+  head
+    title Login
+    +head
+
+  body
+    +navbar
+    h1 Log in:
+    div(class = "container")
+      div(class = "jumbotron")
+        form(action = "/login", method="post")
+          div(class = "form-group")
+            label(for = "name") First Name
+            input(type = "text", class = "form-control", id = "name", name = "name")
+          div(class = "form-group")
+            label(for = "pwd") Password
+            input(type = "password", class = "form-control", id = "pwd", name = "pwd")
+          input(type = "submit",value = "Submit")
+
