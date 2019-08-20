@@ -1,6 +1,6 @@
 const express = require('express')
 const scheduler = require("node-schedule")
-
+const fs = require("fs")
 const router = express.Router()
 var seltzer_flavors = 
 [["lime","Lime"],
@@ -52,16 +52,34 @@ scheduler.scheduleJob(newDay,resetSeltzer)
 
 router.post('/set',function (req, res) {
   console.log(req.body)
+  if(req.session.user == "Colin" || req.session.user == "Michael"){
   newSeltzer(req.body.primary,req.body.secondary)
   res.render('set_seltzer', {seltzer_flavors: seltzer_flavors})
+  }
+  else{
+    res.end("You're not allowed to do this, Eric.")
+  }
 })
 router.post('/',function (req, res) {
-  console.log(req.body)
+  printed = req.body
+  printed.user = req.session.user
+  console.log(printed)
   if(req.body.primary != undefined)	num_primary +=1
   if (req.body.secondary != undefined) num_secondary += 1
   if (req.body.other != undefined) num_other +=1
-  res.render('seltzer', seltzerDict(req))
+  res.redirect("/seltzer")
 })
+
+router.post('/bevi',function (req, res) {
+  console.log(req.body)
+  if(req.body.primary != undefined) num_primary +=1
+  if (req.body.secondary != undefined) num_secondary += 1
+  if (req.body.other != undefined) num_other +=1
+    sdict = seltzerDict(req)
+    sdict.bevi = true
+  res.render('seltzer', sdict)
+})
+
 
 router.get('/set', function (req, res) {
   res.render('set_seltzer', {seltzer_flavors: seltzer_flavors})
@@ -81,5 +99,10 @@ router.post('/other', function (req, res) {
 })
 router.get('/', function (req, res) {
   res.render('seltzer', seltzerDict(req))
+})
+router.get('/bevi', function (req, res) {
+  sdict  = seltzerDict(req)
+  sdict.bevi = true
+  res.render('seltzer', sdict)
 })
 module.exports = router

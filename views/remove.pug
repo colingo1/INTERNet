@@ -1,0 +1,18 @@
+include mixins
+html(lang='en')  
+  head
+    title Remove
+    +head
+
+  body
+    +navbar
+    h1 Log in:
+    div(class = "container")
+      div(class = "jumbotron")
+        form(action = "/remove", method="post")
+          div(class = "form-group")
+            input(type = "text", class = "form-control", id = "name", name = "name")
+          div(class = "form-group")
+            input(type = "text", class = "form-control", id = "flavor", name = "flavor")
+          input(type = "submit",value = "Submit")
+

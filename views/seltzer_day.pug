@@ -1,0 +1,71 @@
+include mixins
+doctype html  
+html(lang='en')
+  head
+    title Seltzer Of The Day
+    +head
+  body
+    +navbar
+    h1 Happy Seltzer Day! Drink Those Seltzers!
+    form(action = "/seltzerday", method = "post")
+      div(class = "container-fluid")
+        div(class = "row")
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/lemon.jpg', height="150")
+            div(class = "row")
+              input(type = "submit", name= "lemon", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["lemon"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/lime.jpg', height="150")
+            div(class = "row")
+              input(type = "submit", name= "lime", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["lime"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/cranberry-lime.jpg', height="150")
+            div(class = "row")
+              input(type = "submit",name = "cranberry-lime", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["cranberry-lime"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/raspberry-lime.jpg', height="150")
+            div(class = "row")
+              input(type = "submit",name = "raspberry-lime", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["raspberry-lime"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/black-cherry.jpg', height="150")
+            div(class = "row")
+              input(type = "submit",name = "black-cherry", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["black-cherry"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/ruby-red-grapefruit.jpg', height="150")
+            div(class = "row")
+              input(type = "submit",name = "ruby-red-grapefruit", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["ruby-red-grapefruit"]
+          div(class = "col-sm") 
+            div(class = "row")
+              img(src='/res/mandarin.jpg', height="150")
+            div(class = "row")
+              input(type = "submit",name = "mandarin", value = "I've had one!",class="btn btn-primary")
+            div(class = "row")
+              h3= flavors["mandarin"]
+
+    h2 My Seltzers today: #{my_seltzers}
+    h2 Total: #{flavors["lemon"] + flavors["lime"] + flavors["cranberry-lime"] + flavors["black-cherry"] + flavors["raspberry-lime"] + flavors["mandarin"] + flavors["ruby-red-grapefruit"]}
+    h2 Current Seltzer Leaders:
+      table(class = "table table-striped")
+        each user in user_seltzers
+          tr
+            td= user[0]
+            td= user[1]
+

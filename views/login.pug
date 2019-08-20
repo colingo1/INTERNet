@@ -1,0 +1,22 @@
+include mixins
+html(lang='en')  
+  head
+    title Login
+    +head
+
+  body
+    +navbar
+    h1 Log in:
+    div(class = "container")
+      div(class = "jumbotron")
+        if failed
+          div(class = "alert alert-danger") Login Failed
+        form(action = "/login", method="post")
+          div(class = "form-group")
+            label(for = "username") First Name
+            input(type = "text", class = "form-control", id = "username", name = "username")
+          div(class = "form-group")
+            label(for = "password") Password
+            input(type = "password", class = "form-control", id = "password", name = "password")
+          input(type = "submit",value = "Submit")
+

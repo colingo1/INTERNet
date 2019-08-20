@@ -5,7 +5,11 @@ html(lang='en')
     title Seltzer Of The Day
     +head
   body
-    +navbar
+    unless bevi
+      +navbar
+    if bevi
+      div(class = "text-right")
+       img(src = "/res/arrow.jpg", height = "300")
     h1 Today's Seltzer Flavors of the day are:
     div(class = "container-fluid")
       div(class = "row")
@@ -14,25 +18,25 @@ html(lang='en')
           div(class = "row")
             img(src='/res/'+flavor_primary+'.jpg', height="200")
           div(class = "row")
-            form(action = "/seltzer" method = "post")
+            form(action = bevi?("/seltzer/bevi"):("/seltzer"), method = "post")
               input(type = "submit", name= "primary", value = "I've had one!",class="btn btn-primary")
         div(class = "col-sm-4") 
           div(class = "row") Secondary
           div(class = "row")
             img(src='/res/'+flavor_secondary+'.jpg', height="200")
           div(class = "row")
-            form(action = "/seltzer" method = "post")
+            form(action = bevi?("/seltzer/bevi"):("/seltzer") method = "post")
               input(type = "submit", name= "secondary", value = "I've had one!",class="btn btn-primary")
-        div(class = "col-sm-4") 
-          div(class = "row") Other
-          div(class = "row")
-            img(src='/res/undefined.jpg', height="200")
-          div(class = "row")
-            form(action = "/seltzer" method = "post")
-              input(type = "submit",name = "other", value = "I had a different one because I'm a loser",class="btn btn-primary")
+        unless bevi
+          div(class = "col-sm-4") 
+            div(class = "row") Other
+            div(class = "row")
+              img(src='/res/undefined.jpg', height="200")
+            div(class = "row")
+              form(action = "/seltzer" method = "post")
+                input(type = "submit",name = "other", value = bevi?("I had a Bevi because I'm a loser"):("I had a different one because I'm a loser"),class="btn btn-primary")
 
     h2 Number of Seltzers consumed today: #{num_primary + num_secondary + num_other}
     h3 Primary: #{num_primary}
     h3 Secondary: #{num_secondary}
     h3 Other: #{num_other}
-    

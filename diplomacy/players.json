@@ -1,0 +1,52 @@
+{
+	"Colin":
+	{
+		"country": "Italy",
+		"units":
+		[
+			{
+				"territory" : "mar",
+				"type" : "A"
+			},
+			{
+				"territory" : "ven",
+				"type" : "A"
+			},
+			{
+				"territory" : "tus",
+				"type" : "A"
+			},
+			{
+				"territory" : "mos",
+				"type" : "A"
+			},
+			{
+				"territory" : "tyr",
+				"type" : "F"
+			},
+			{
+				"territory" : "lyo",
+				"type" : "F"
+			},
+			{
+				"territory" : "wes",
+				"type" : "F"
+			},
+			{
+				"territory" : "con",
+				"type" : "F"
+			},
+			{
+				"territory" : "sev",
+				"type" : "F"
+			}
+
+
+		]
+
+	}
+
+
+
+
+}

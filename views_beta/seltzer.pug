@@ -5,7 +5,8 @@ html(lang='en')
     title Seltzer Of The Day
     +head
   body
-    +navbar
+    unless bevi
+      +navbar
     h1 Today's Seltzer Flavors of the day are:
     div(class = "container-fluid")
       div(class = "row")

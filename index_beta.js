@@ -26,7 +26,7 @@ app.get("/login",function (req, res) {
 app.post("/login",function(req,res) {
   req.session.user = "Colin"
   req.session.logged_in = true
-  res.render("login", {logged_in : req.session.logged_in, user: req.session.user})
+  res.render("login", {logged_in : req.session.logged_in, user: req.session.user,failed:true})
 })
 app.get("/logout",function(req,res){
   req.session.logged_in = false
